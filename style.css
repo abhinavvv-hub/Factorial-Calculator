@@ -103,3 +103,64 @@ body::before {
     animation: moveBackground 15s infinite alternate ease-in-out;
     z-index: -1;
 }
+.info-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.info-icon {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 18px;
+    font-weight: bold;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+.info-icon:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+.info-box {
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(3px); 
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    color: white;
+    width: 220px;
+    max-height: 150px; 
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    text-align: left;
+    opacity: 0;
+    transform: scale(0.8);
+    overflow-y: auto; 
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+.info-container:hover .info-box {
+    opacity: 1;
+    transform: scale(1);
+}
+.info-box::-webkit-scrollbar {
+    width: 4px; 
+}
+
+.info-box::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+.info-box::-webkit-scrollbar-track {
+    background: transparent;
+}
