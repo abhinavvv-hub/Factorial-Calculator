@@ -1,0 +1,105 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    overflow: hidden;
+    position: relative;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    max-width: 300px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    transform: perspective(1000px) rotateY(90deg) scale(0.5);
+    opacity: 0;
+    animation: flipZoomIn 1s ease-out forwards;
+}
+.container {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+.container:active {
+    transform: scale(0.98);
+}
+
+input, button {
+    margin: 10px 0;
+    padding: 10px;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+input:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+
+button {
+    background: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+input {
+    text-align: center;
+}
+
+@keyframes moveBackground {
+    0% { transform: scale(1) translateX(0px) translateY(0px); opacity: 1; }
+    25% { transform: scale(1.1) translateX(30px) translateY(-30px); opacity: 0.9; }
+    50% { transform: scale(1.2) translateX(-30px) translateY(30px); opacity: 0.85; }
+    75% { transform: scale(1.1) translateX(20px) translateY(-20px); opacity: 0.9; }
+    100% { transform: scale(1) translateX(0px) translateY(0px); opacity: 1; }
+}
+
+@keyframes flipZoomIn {
+    0% { transform: perspective(1000px) rotateY(90deg) scale(0.5); opacity: 0; }
+    100% { transform: perspective(1000px) rotateY(0deg) scale(1); opacity: 1; }
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(30, 30, 30, 0.8) 0%, rgba(0,0,0,1) 100%), url('pawel-czerwinski-IcOg3D9yh0o-unsplash.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: blur(5px);
+    animation: moveBackground 15s infinite alternate ease-in-out;
+    z-index: -1;
+}
