@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     function animateResult(finalValue) {
         let count = 0;
-        let fonts = ["Arial", "Verdana", "Courier", "Georgia", "Times New Roman", "Comic Sans MS"];
+        let fonts = ["Arial", "Verdana", "Courier New", "Georgia", "Times New Roman", "Comic Sans MS", "Impact", "Lucida Console"];
         let index = 0;
         resultDisplay.textContent = "Calculating...";
         resultDisplay.style.fontFamily = fonts[index];
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let fontInterval = setInterval(() => {
             index = (index + 1) % fonts.length;
             resultDisplay.style.fontFamily = fonts[index];
-        }, 100);
+        }, 200);
 
         setTimeout(() => {
             clearInterval(fontInterval);
@@ -30,9 +30,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     clearInterval(interval);
                     resultDisplay.textContent = finalValue;
                 }
-                count += Math.ceil(finalValue / 30); 
+                count += Math.ceil(finalValue / 10); 
             }, 20);
-        }, 2400); 
+        }, 1000); 
     }
     function handleCalculation() {
         let num = parseInt(inputField.value);
